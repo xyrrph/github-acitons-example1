@@ -20,9 +20,17 @@ jobs:
 
     - name: 複数行runとシェル変数
       run: |
+        echo hoge
+        # hogehoge
         [ -f main.go ] && SRC=main.go || SRC=hoge.go
         echo "SRC=" $SRC
         sed -i -e 's/Hello/Hey/' $SRC
 
     - name: Build
       run: go build -v .
+
+    - name: Upload
+      uses: actions/upload-artifact@v4
+      with:
+        name: build
+        path: main
