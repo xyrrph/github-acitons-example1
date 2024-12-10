@@ -1,0 +1,22 @@
+name: Go Test
+
+# トリガー
+on:
+    push:
+
+jobs:
+    build:
+	# ランナー(ジョブを実行するサーバ)の指定
+	runs-on: ubuntu-latest
+
+	# ジョブの内容
+	steps:
+	- uses: actions/checkout@v4
+
+	- name: Set up Go
+	  uses: actions/setup-go@v5
+	  with:
+	    go-version: '1.22'
+
+	- name: Build
+	  run: go build -v .
