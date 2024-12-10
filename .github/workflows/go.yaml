@@ -20,7 +20,7 @@ jobs:
 
     - name: 複数行runとシェル変数
       run: |
-        [ -f main.mod ] && SRC=main.go || SRC=hoge.go
+        [ -f main.go ] && SRC=main.go || SRC=hoge.go
         echo "SRC=" $SRC
         sed -i -e 's/Hello/Hey/' $SRC
 
